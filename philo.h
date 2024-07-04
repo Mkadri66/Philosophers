@@ -6,7 +6,7 @@
 /*   By: mkadri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:59:13 by mkadri            #+#    #+#             */
-/*   Updated: 2024/07/04 16:03:58 by mkadri           ###   ########.fr       */
+/*   Updated: 2024/07/04 18:24:31 by mkadri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@
 # include <sys/wait.h>
 # include <limits.h>
 
+int	parsing_args(char **argv);
 
 #endif
