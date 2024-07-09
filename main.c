@@ -6,7 +6,7 @@
 /*   By: mkadri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:54:18 by mkadri            #+#    #+#             */
-/*   Updated: 2024/07/04 18:24:07 by mkadri           ###   ########.fr       */
+/*   Updated: 2024/07/09 12:41:49 by mkadri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ int	main(int argc, char **argv)
 			return (1);
 	}
 	else
-		perror("Invalid number of argumet");
+		printf("Invalid number of arguments");
 }
