@@ -6,7 +6,7 @@
 #    By: mkadri <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/04 15:56:47 by mkadri            #+#    #+#              #
-#    Updated: 2024/07/04 15:57:05 by mkadri           ###   ########.fr        #
+#    Updated: 2024/07/30 20:05:12 by mkadri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 SRCS = main.c $(wildcard ft_printf/*.c) $(wildcard src/*.c) $(wildcard libft/*.c)
 OBJS = $(SRCS:.c=.o)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -pthread
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
