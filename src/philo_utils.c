@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   philo_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkadri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 15:54:18 by mkadri            #+#    #+#             */
-/*   Updated: 2024/08/01 17:55:11 by mkadri           ###   ########.fr       */
+/*   Created: 2024/08/01 17:13:35 by mkadri            #+#    #+#             */
+/*   Updated: 2024/08/01 17:19:00 by mkadri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./philo.h"
+#include "../philo.h"
 
-int	main(int argc, char **argv)
+size_t	current_time(void)
 {
-	t_program			program;
-	t_philo				philos[PHILO_MAX];
-	pthread_mutex_t		forks[PHILO_MAX];
+	struct timeval	time;
 
-	if (argc == 5 || argc == 6)
-	{
-		if (parsing_args(argv) == 1)
-			return (1);
-		init_program(&program, philos);
-		init_forks(forks, ft_atoi(argv[1]));
-		init_philos(philos, &program, forks, argv);
-	}
-	else
-		printf("Invalid number of arguments");
+	if (gettimeofday(&time, NULL) == -1)
+		write(2, "error with gettimeofday() function\n", 36);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }

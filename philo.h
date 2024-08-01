@@ -6,7 +6,7 @@
 /*   By: mkadri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:59:13 by mkadri            #+#    #+#             */
-/*   Updated: 2024/07/11 19:40:14 by mkadri           ###   ########.fr       */
+/*   Updated: 2024/08/01 17:54:10 by mkadri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <sys/wait.h>
 # include <limits.h>
 # include <pthread.h>
+# include <sys/time.h>
 
 # define PHILO_MAX 200
 
@@ -54,7 +55,16 @@ typedef struct s_program
 	t_philo			*philos;
 }	t_program;
 
-int	parsing_args(char **argv);
-int	ft_atoi(char *str);
+// Utils
 
+int		parsing_args(char **argv);
+int		ft_atoi(char *str);
+size_t	current_time(void);
+
+// Init 
+
+void	init_program(t_program *program, t_philo *philos);
+void	init_forks(pthread_mutex_t *forks, int philo_count);
+void	init_philos(t_philo *philos, t_program *program,
+			pthread_mutex_t *forks, char **argv);
 #endif
