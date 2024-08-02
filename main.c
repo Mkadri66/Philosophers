@@ -6,7 +6,7 @@
 /*   By: mkadri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:54:18 by mkadri            #+#    #+#             */
-/*   Updated: 2024/08/01 17:55:11 by mkadri           ###   ########.fr       */
+/*   Updated: 2024/08/02 20:41:31 by mkadri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int	main(int argc, char **argv)
 		init_philos(philos, &program, forks, argv);
 	}
 	else
-		printf("Invalid number of arguments");
+		write(1, "Invalid number of arguments\n", 28);
 }
