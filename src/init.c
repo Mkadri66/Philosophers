@@ -6,7 +6,7 @@
 /*   By: mkadri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 14:02:40 by mkadri            #+#    #+#             */
-/*   Updated: 2024/08/01 17:53:39 by mkadri           ###   ########.fr       */
+/*   Updated: 2024/08/07 13:35:58 by mkadri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,30 @@ void	init_philos(t_philo *philos, t_program *program,
 			philos[i].right_fork = &forks[i - 1];
 		i++;
 	}
+}
+
+int	create_threads(t_program *program, pthread_mutex_t *forks)
+{
+	pthread_t	observer;
+	int		i;
+	
+	if (pthread_create(&observer, NULL, &scan_philos, program->philos) != 0)
+		destroy_all_mutex("Error during thread creation", program, forks);
+	i = 0;
+	while (i < program->philos[0].philo_count)
+	{
+		if (pthread_create(&program->philos[i].thread, NULL, &philo_routine, &program->philos[i]) != 0)
+			destroy_all_mutex("Error during thread creation", program, forks);
+		i++;
+	}
+	i = 0;
+	if (pthread_join(observer, NULL) != 0)
+		destroy_all_mutex("Error during thread join", program, forks);
+	while (i < program->philos[0].philo_count)
+	{
+		if (pthread_join(program->philos[i].thread, NULL) != 0)
+			destroy_all_mutex("Error during thread join", program, forks);
+		i++;
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mkadri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:54:18 by mkadri            #+#    #+#             */
-/*   Updated: 2024/08/02 20:41:31 by mkadri           ###   ########.fr       */
+/*   Updated: 2024/08/08 18:38:04 by mkadri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 		init_program(&program, philos);
 		init_forks(forks, ft_atoi(argv[1]));
 		init_philos(philos, &program, forks, argv);
+		create_threads(&program, forks);
 	}
 	else
 		write(1, "Invalid number of arguments\n", 28);

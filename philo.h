@@ -6,7 +6,7 @@
 /*   By: mkadri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:59:13 by mkadri            #+#    #+#             */
-/*   Updated: 2024/08/01 17:54:10 by mkadri           ###   ########.fr       */
+/*   Updated: 2024/08/08 17:09:27 by mkadri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ typedef struct s_program
 int		parsing_args(char **argv);
 int		ft_atoi(char *str);
 size_t	current_time(void);
+void		print_message(char *str, t_philo *philo, int philo_id);
+int		custom_usleep(size_t milliseconds);
 
 // Init 
 
@@ -67,4 +69,13 @@ void	init_program(t_program *program, t_philo *philos);
 void	init_forks(pthread_mutex_t *forks, int philo_count);
 void	init_philos(t_philo *philos, t_program *program,
 			pthread_mutex_t *forks, char **argv);
+
+// Threads
+
+int	create_threads(t_program *program, pthread_mutex_t *forks);
+void	*scan_philos(void *pointer);
+int	check_dead_lock(t_philo *philo);
+void	*philo_routine(void *pointer);
+void	destroy_all_mutex(char *str, t_program *program, pthread_mutex_t *forks);
+
 #endif
