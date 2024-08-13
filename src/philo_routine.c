@@ -14,13 +14,13 @@
 
 void	dream(t_philo *philo)
 {
-	print_message("is sleeping",philo, philo->philo_id);
+	print_message("is sleeping", philo, philo->philo_id);
 	custom_usleep(philo->time_to_sleep);
 }
 
 void	think(t_philo *philo)
 {
-	print_message("is thinking",philo, philo->philo_id);
+	print_message("is thinking", philo, philo->philo_id);
 }
 
 void	eat(t_philo *philo)
@@ -50,7 +50,7 @@ void	eat(t_philo *philo)
 void	*philo_routine(void *pointer)
 {
 	t_philo	*philo;
-	
+
 	philo = (t_philo *) pointer;
 	if (philo->philo_id % 2 == 0)
 		custom_usleep(1);

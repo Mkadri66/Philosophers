@@ -75,14 +75,15 @@ void	init_philos(t_philo *philos, t_program *program,
 int	create_threads(t_program *program, pthread_mutex_t *forks)
 {
 	pthread_t	observer;
-	int		i;
-	
+	int			i;
+
 	if (pthread_create(&observer, NULL, &scan_philos, program->philos) != 0)
 		destroy_all_mutex("Error during thread creation", program, forks);
 	i = 0;
 	while (i < program->philos[0].philo_count)
 	{
-		if (pthread_create(&program->philos[i].thread, NULL, &philo_routine, &program->philos[i]) != 0)
+		if (pthread_create(&program->philos[i].thread, NULL,
+				&philo_routine, &program->philos[i]) != 0)
 			destroy_all_mutex("Error during thread creation", program, forks);
 		i++;
 	}

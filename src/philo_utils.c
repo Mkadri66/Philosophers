@@ -12,10 +12,10 @@
 
 #include "../philo.h"
 
-void destroy_all_mutex(char *str, t_program *program, pthread_mutex_t *forks)
+void	destroy_all_mutex(char *str, t_program *program, pthread_mutex_t *forks)
 {
 	int	i;
-	
+
 	i = 0;
 	if (str)
 		printf("%s \n", str);
@@ -47,10 +47,10 @@ int	check_dead_lock(t_philo *philo)
 	return (0);
 }
 
-int custom_usleep(size_t milliseconds)
+int	custom_usleep(size_t milliseconds)
 {
-	size_t start;
-	
+	size_t	start;
+
 	start = current_time();
 	while ((current_time() - start) < milliseconds)
 	{

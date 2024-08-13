@@ -60,7 +60,7 @@ typedef struct s_program
 int		parsing_args(char **argv);
 int		ft_atoi(char *str);
 size_t	current_time(void);
-void		print_message(char *str, t_philo *philo, int philo_id);
+void	print_message(char *str, t_philo *philo, int philo_id);
 int		custom_usleep(size_t milliseconds);
 
 // Init 
@@ -72,10 +72,11 @@ void	init_philos(t_philo *philos, t_program *program,
 
 // Threads
 
-int	create_threads(t_program *program, pthread_mutex_t *forks);
+int		create_threads(t_program *program, pthread_mutex_t *forks);
 void	*scan_philos(void *pointer);
-int	check_dead_lock(t_philo *philo);
+int		check_dead_lock(t_philo *philo);
 void	*philo_routine(void *pointer);
-void	destroy_all_mutex(char *str, t_program *program, pthread_mutex_t *forks);
+void	destroy_all_mutex(char *str, t_program *program,
+			pthread_mutex_t *forks);
 
 #endif
